@@ -1,2 +1,1 @@
-# sh3llc0d3s
-Só shellcodes que to criando pra estudar, NÃO LEVE ISSO A SERIO!!
+# r3v3rs1ng
